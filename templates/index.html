@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub User Profile Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fab fa-github"></i> GitHub Profile Search</h1>
+            <p>Search for any GitHub user and view their profile details</p>
+        </header>
+
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="usernameInput" placeholder="Enter GitHub username..." autofocus>
+                <button id="searchBtn"><i class="fas fa-search"></i> Search</button>
+            </div>
+            <div id="errorMessage" class="error-message"></div>
+        </div>
+
+        <div id="profileContainer" style="display: none;">
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img id="avatar" src="" alt="Avatar" class="avatar">
+                    <div class="profile-title">
+                        <h2 id="name"></h2>
+                        <h3 id="username"></h3>
+                    </div>
+                </div>
+
+                <div class="profile-bio">
+                    <p id="bio"></p>
+                </div>
+
+                <div class="profile-details">
+                    <div class="detail-item">
+                        <i class="fas fa-building"></i>
+                        <span id="company"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span id="location"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span id="email"></span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-link"></i>
+                        <a id="blog" href="#" target="_blank"></a>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fab fa-twitter"></i>
+                        <span id="twitter"></span>
+                    </div>
+                </div>
+
+                <div class="profile-stats">
+                    <div class="stat">
+                        <span class="stat-number" id="repos">0</span>
+                        <span class="stat-label">Repositories</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="gists">0</span>
+                        <span class="stat-label">Gists</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="followers">0</span>
+                        <span class="stat-label">Followers</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="following">0</span>
+                        <span class="stat-label">Following</span>
+                    </div>
+                </div>
+
+                <div class="profile-dates">
+                    <small>Joined: <span id="createdAt"></span></small>
+                    <small>Last updated: <span id="updatedAt"></span></small>
+                </div>
+            </div>
+
+            <div class="repositories-section">
+                <h3><i class="fas fa-code"></i> Recent Repositories</h3>
+                <div id="reposList" class="repos-list"></div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Powered by GitHub API</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
